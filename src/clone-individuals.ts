@@ -97,7 +97,6 @@ export function cloneIndividuals(individuals: Individual[]) {
 
   newIndividuals.forEach((individual, index) => {
     if (index === 0) {
-      console.log(substituir[0].slice(0, 4))
       individual.setChromosome(Number(substituir[0].slice(0, 6)))
     }
 
@@ -132,11 +131,12 @@ export function cloneIndividuals(individuals: Individual[]) {
   })
 
   newIndividuals.forEach(individual => {
-    const [x, y] = individual.getChromosomeString().slice(4)
-    console.log(x, y)
-    individual.x = Number(bin2dec(x.toString().padStart(6, "0")))
-    individual.y = Number(bin2dec(y.toString().padStart(6, "0")))
-    individual.generateF()
+    const x = individual.getChromosomeString().slice(0, 4)
+    const y = individual.getChromosomeString().slice(4, 6)
+
+    individual.x = Number(bin2dec(x.padStart(6, "0")))
+    individual.y = Number(bin2dec(y.padStart(6, "0")))
+    individual.generateF(Number(bin2dec(x.padStart(6, "0"))), Number(bin2dec(y.padStart(6, "0"))))
   })
 
   return newIndividuals;

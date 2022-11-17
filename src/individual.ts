@@ -24,8 +24,8 @@ export class Individual {
     this.weighting = 0
   }
 
-  public generateF() {
-    this.f = this.x && this.y ? f(this.x, this.y) : 0
+  public generateF(x: number, y: number) {
+    this.f =f(x, y)
   }
 
   public generateChromosome() {
