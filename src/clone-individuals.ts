@@ -126,7 +126,7 @@ export function cloneIndividuals(individuals: Individual[]) {
     if (index === 8) {
       individual.setChromosome(Number(substituir[4].slice(0, 6)))
     }
-    if (index === 8) {
+    if (index === 9) {
       individual.setChromosome(Number(substituir[4].slice(6, 12)))
     }
   })
