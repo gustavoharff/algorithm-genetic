@@ -3,9 +3,9 @@ import { f } from "./f";
 
 // Classe de individuo
 export class Individual {
-  private x: number;
+  public x: number;
 
-  private y: number;
+  public y: number;
 
   private chromosome: number;
 
@@ -22,6 +22,14 @@ export class Individual {
     this.chromosome = Number(`${dec2bin(Number(this.x))}${dec2bin(Number(this.y))}`)
     this.f = x && y ? f(x, y) : 0
     this.weighting = 0
+  }
+
+  public generateF() {
+    this.f = this.x && this.y ? f(this.x, this.y) : 0
+  }
+
+  public generateChromosome() {
+    // this.chromosome = Number(`${dec2bin(Number(this.x))}${dec2bin(Number(this.y))}`)
   }
 
   public setChromosome(chromosome: number) {

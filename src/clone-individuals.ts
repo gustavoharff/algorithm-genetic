@@ -1,5 +1,6 @@
 import { Individual } from "./individual";
 import shuffle from "lodash.shuffle";
+import { bin2dec } from "./dec2bin";
 
 // Cria outros individuos copiando apenas o cromosomo de outra listagem
 export function cloneIndividuals(individuals: Individual[]) {
@@ -93,10 +94,49 @@ export function cloneIndividuals(individuals: Individual[]) {
   substituir[3] = setCharAt(substituir[3], _3, substituir[3][_3] === "0" ? "1" : "0" )
   substituir[4] = setCharAt(substituir[4], _4, substituir[4][_4] === "0" ? "1" : "0" )
 
+
   newIndividuals.forEach((individual, index) => {
     if (index === 0) {
-      individual.setChromosome(Number(substituir[0].slice(5)[0]))
+      console.log(substituir[0].slice(0, 4))
+      individual.setChromosome(Number(substituir[0].slice(0, 6)))
     }
+
+    if (index === 1) {
+      individual.setChromosome(Number(substituir[0].slice(6, 12)))
+    }
+
+    if (index === 2) {
+      individual.setChromosome(Number(substituir[1].slice(0, 6)))
+    }
+    if (index === 3) {
+      individual.setChromosome(Number(substituir[1].slice(6, 12)))
+    }
+    if (index === 4) {
+      individual.setChromosome(Number(substituir[2].slice(0, 6)))
+    }
+    if (index === 5) {
+      individual.setChromosome(Number(substituir[2].slice(6, 12)))
+    }
+    if (index === 6) {
+      individual.setChromosome(Number(substituir[3].slice(0, 6)))
+    }
+    if (index === 7) {
+      individual.setChromosome(Number(substituir[3].slice(6, 12)))
+    }
+    if (index === 8) {
+      individual.setChromosome(Number(substituir[4].slice(0, 6)))
+    }
+    if (index === 8) {
+      individual.setChromosome(Number(substituir[4].slice(6, 12)))
+    }
+  })
+
+  newIndividuals.forEach(individual => {
+    const [x, y] = individual.getChromosomeString().slice(4)
+    console.log(x, y)
+    individual.x = Number(bin2dec(x.toString().padStart(6, "0")))
+    individual.y = Number(bin2dec(y.toString().padStart(6, "0")))
+    individual.generateF()
   })
 
   return newIndividuals;
