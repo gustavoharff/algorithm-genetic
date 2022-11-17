@@ -32,8 +32,12 @@ export class Individual {
     return this.chromosome
   }
 
+  public getChromosomeString() {
+    return this.chromosome.toString().padStart(6, "0")
+  }
+
   public toString() {
-    return `| ${this.x}     | ${this.y}     | ${this.chromosome.toString().padStart(6, "0")}     | ${this.f.toString().padStart(2,"0")}     | ${this.weighting}`
+    return `| ${this.x}     | ${this.y}     | ${this.getChromosomeString()}     | ${this.f.toString().padStart(2,"0")}     | ${this.weighting}`
   }
 
   public getF() {
