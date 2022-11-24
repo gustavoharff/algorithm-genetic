@@ -1,2 +1,3 @@
-export const SIZE = 100
-export const CHROMOSOME_LENGTH = 7
+export const SIZE = 8
+export const CHROMOSOME_LENGTH = 4
+export const EXPECTED_VALUE = 185

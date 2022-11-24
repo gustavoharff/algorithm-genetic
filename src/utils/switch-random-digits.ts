@@ -31,8 +31,6 @@ export function switchRandomDigits(list: Individual[]) {
     const start = backup[backup.length - 1].slice(CHROMOSOME_LENGTH * 0, CHROMOSOME_LENGTH * 4);
     const end = backup[backup.length - 1].slice(CHROMOSOME_LENGTH * 4, CHROMOSOME_LENGTH * 8);
 
-    console.log(start, end)
-
     if (par) {
       item.setChromosome(start);
     } else {

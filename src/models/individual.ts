@@ -51,7 +51,7 @@ export class Individual {
       .toString()
       .padStart(3, "0")}    | ${this.z
       .toString()
-      .padStart(3, "0")}    | ${this.getChromosome()} | ${this.f
+      .padStart(3, "0")}    | ${this.getChromosome().padEnd(28, " ")} | ${this.f
       .toString()
       .padStart(5, "0")}     | ${this.weighting}`;
   }
