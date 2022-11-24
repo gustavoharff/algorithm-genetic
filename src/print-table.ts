@@ -1,10 +1,11 @@
-import { Individual } from "./individual";
+import { Individual } from "./models/individual";
 
-export function printTable(individuals: Individual[]) {
-  console.log("                                                 ")
-  console.log("-------------------------------------------------")
-  console.log("| x     | y     | chromosome | f      | weighting")
-  console.log("-------------------------------------------------")
+export function printTable(title: string, individuals: Individual[]) {
+  console.log(" ")
+  console.log(title)
+  console.log("--------------------------------------------------------------------------------------------")
+  console.log("| x      | y      | w      | z      | chromosome                   | function    | weighting")
+  console.log("--------------------------------------------------------------------------------------------")
 
   for (const individual of individuals) {
     console.log(individual.toString())
